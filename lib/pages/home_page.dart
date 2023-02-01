@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:bwa_cozy/models/city.dart';
 import 'package:bwa_cozy/models/spaces.dart';
 import 'package:bwa_cozy/models/tips.dart';
@@ -160,12 +158,12 @@ class HomePage extends StatelessWidget {
                   future: spaceProvider.getRecommendedSpaces(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      List<Space> data = snapshot.data;
+                      List<Space>? data = snapshot.data as List<Space>?;
 
                       int index = 0;
 
                       return Column(
-                        children: data.map((item) {
+                        children: data!.map((item) {
                           index++;
                           return Container(
                             margin: EdgeInsets.only(

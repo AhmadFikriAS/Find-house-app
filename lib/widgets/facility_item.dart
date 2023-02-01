@@ -2,9 +2,9 @@ import 'package:bwa_cozy/theme.dart';
 import 'package:flutter/material.dart';
 
 class FacilityItem extends StatelessWidget {
-  final String name;
-  final String imageUrl;
-  final int total;
+  final String? name;
+  final String? imageUrl;
+  final int? total;
 
   FacilityItem({this.imageUrl, this.name, this.total});
   @override
@@ -13,7 +13,7 @@ class FacilityItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image.asset(
-          imageUrl,
+          imageUrl!,
           width: 32,
         ),
         SizedBox(

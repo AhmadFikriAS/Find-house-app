@@ -51,7 +51,7 @@ class ErrorPage extends StatelessWidget {
                         (route) => false);
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: purpleColor,
+                    backgroundColor: purpleColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(17),
                     ),

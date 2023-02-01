@@ -20,7 +20,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     launchUrl(String url) async {
-      if (await canLaunchUrl(Uri.tryParse(url))) {
+      if (await canLaunchUrl(Uri.parse(url))) {
         launchUrl(url);
       } else {
         //  throw 'Could not launch $url';
@@ -72,7 +72,7 @@ class _DetailPageState extends State<DetailPage> {
         child: Stack(
           children: [
             Image.network(
-              widget.space.imageUrl,
+              widget.space.imageUrl!,
               width: MediaQuery.of(context).size.width,
               height: 350,
               fit: BoxFit.cover,
@@ -108,7 +108,7 @@ class _DetailPageState extends State<DetailPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  widget.space.name,
+                                  widget.space.name!,
                                   style: blackTextStyle.copyWith(
                                     fontSize: 22,
                                   ),
@@ -142,7 +142,7 @@ class _DetailPageState extends State<DetailPage> {
                                   ),
                                   child: RatingItem(
                                     index: index,
-                                    rating: widget.space.rating,
+                                    rating: widget.space.rating!,
                                   ),
                                 );
                               }).toList(),
@@ -176,17 +176,17 @@ class _DetailPageState extends State<DetailPage> {
                             FacilityItem(
                               name: 'kitchen',
                               imageUrl: 'assets/icon_kitchen.png',
-                              total: widget.space.numberOfKitchens,
+                              total: widget.space.numberOfKitchens!,
                             ),
                             FacilityItem(
                               name: 'bedroom',
                               imageUrl: 'assets/icon_bedroom.png',
-                              total: widget.space.numberOfBedrooms,
+                              total: widget.space.numberOfBedrooms!,
                             ),
                             FacilityItem(
                               name: 'Big Lemari',
                               imageUrl: 'assets/icon_cupboard.png',
-                              total: widget.space.numberOfCupboards,
+                              total: widget.space.numberOfCupboards!,
                             ),
                           ],
                         ),
@@ -211,7 +211,7 @@ class _DetailPageState extends State<DetailPage> {
                         height: 88,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: widget.space.photos.map((item) {
+                          children: widget.space.photos!.map((item) {
                             return Container(
                               margin: EdgeInsets.only(
                                 left: 24,
@@ -261,7 +261,7 @@ class _DetailPageState extends State<DetailPage> {
                                 // launchUrl(
                                 //     'https://goo.gl/maps/SyZx2yjWB1yR6AeH8');
 
-                                launchUrl(widget.space.mapUrl);
+                                launchUrl(widget.space.mapUrl!);
                               },
                               child: Image.asset(
                                 'assets/btn_map.png',
@@ -282,7 +282,7 @@ class _DetailPageState extends State<DetailPage> {
                         width: MediaQuery.of(context).size.width - (2 * edge),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: purpleColor,
+                            backgroundColor: purpleColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(17),
                             ),
